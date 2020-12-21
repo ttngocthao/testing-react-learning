@@ -1,9 +1,9 @@
 import React from "react";
 
-const Congratulation = () => {
+const Congratulation = (props) => {
   return (
-    <div>
-      <h2>Congratulation</h2>
+    <div data-test='component-congrats'>
+      {props.success && <h2 data-test='congrats-msg'>Congratulations, you got it.</h2> }
     </div>
   );
 };
