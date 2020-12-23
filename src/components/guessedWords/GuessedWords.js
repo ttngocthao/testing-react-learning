@@ -8,7 +8,7 @@ const GuessedWords = (props) => {
         contents =(
         <div data-test='list-guessed-words'>
             <h3>Guessed Words</h3>
-            <table>
+            <table className='ui celled table violet inverted'>
                 <thead>
                      <tr>
                     <th>Guessed word</th>
