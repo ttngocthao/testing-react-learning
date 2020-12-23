@@ -53,9 +53,12 @@ describe('if there are words guessed',()=>{
         const guessedWordsList = findByTestAttr(wrapper,'list-guessed-words')
         expect(guessedWordsList.length).toBe(1)
     })
-    test('correct number of guessed words',()=>{
+    test('renders correct number of guessed words',()=>{
         const guessedWord = findByTestAttr(wrapper,'guessed-word')
         expect(guessedWord.length).toBe(guessedWords.length)
     })
-    test('not render instruction',()=>{})
+    test('not render instruction',()=>{
+        const instructionMsg = findByTestAttr(wrapper,'instruction-msg');
+        expect(instructionMsg.length).toBe(0)
+    })
 })

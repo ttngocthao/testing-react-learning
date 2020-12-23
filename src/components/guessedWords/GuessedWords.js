@@ -1,9 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-const GuessedWords = (props) => {   
+const GuessedWords = (props) => {  
+    let contents
+    if(props.guessedWords.length===0) {
+        contents =<h2 data-test='instruction-msg'>Try to guess the secret word!</h2>
+    }else{
+        contents =(
+        <div data-test='list-guessed-words'>
+            <h3>Guessed Words</h3>
+            <table>
+                <thead>
+                     <tr>
+                    <th>Guessed word</th>
+                    <th>Matching letters</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {props.guessedWords.map((word,index)=>(
+                       <tr key={index} data-test='guessed-word'>
+                        <td>{word.guessedWord}</td>
+                        <td>{word.letterMatchCount}</td>
+                       </tr> 
+                    ))}
+                </tbody>
+                
+            </table>
+        </div>)
+    }
     return (
         <div data-test='component-guessed-words' >
-           {props.guessedWords.length===0 ? <h2 data-test='instruction-msg'>Try to guess the secret word!</h2>:<h2>Table of guessed words here</h2>}
+           {contents}
         </div>
     )
 }
